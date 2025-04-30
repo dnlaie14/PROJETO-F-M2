@@ -56,3 +56,19 @@ function resetState() {
         btnAlt.removeChild(btnAlt.firstChild);
     }
 }
+function showQuestion() {
+    resetState();
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+
+    currentQuestion.alterns.forEach((altern) => {
+        const button = document.createElement("button");
+        button.innerHTML = altern.text.trim();
+        button.dataset.id = altern.id;
+        button.classList.add("btn");
+        button.addEventListener("click", selectaltern);
+        btnAlt.appendChild(button);
+    });
+}
+
