@@ -36,3 +36,23 @@ const questions = [
         ]
     }
 ];
+const questionElement = document.getElementById("question");
+const btnAlt = document.getElementById("btn-alt");
+const nextBtn = document.getElementById("next-btn");
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    nextBtn.innerHTML = "Próxima";
+    showQuestion();
+}
+
+function resetState() {
+    nextBtn.style.display = "none";
+    while (btnAlt.firstChild) {
+        btnAlt.removeChild(btnAlt.firstChild);
+    }
+}
