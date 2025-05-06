@@ -72,3 +72,24 @@ function showQuestion() {
     });
 }
 
+function selectaltern(e) {
+    const alterns = questions[currentQuestionIndex].alterns;
+    const correctAltern = alterns.find((altern) => altern.correct);
+
+    const selectedBtn = e.target;
+    const isCorrect = parseInt(selectedBtn.dataset.id) === correctAltern.id;
+
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        score++;
+        Array.from(btnAlt.children).forEach((button) => {
+            button.disabled = true;
+        });
+        nextBtn.style.display = "block";
+    } else {
+        selectedBtn.classList.add("incorrect");
+
+        window.location.href = "gameover.html"; 
+
+    }
+}
