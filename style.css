@@ -145,6 +145,23 @@ body {
     justify-content: center;
     padding-top: 75px;
 }
+.tituloi{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 75px;
+    background-color: #00000069;
+    width: 31.5%;
+    min-width: 60px;
+    margin: 100px auto 0;
+    padding: 30px;
+   
+
+}
+#textoi{
+    color: #ffffff;
+    text-align: center;
+}
 
 #game{
     border-radius: 100px;
