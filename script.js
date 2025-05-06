@@ -88,15 +88,16 @@ function selectaltern(e) {
         nextBtn.style.display = "block";
     } else {
         selectedBtn.classList.add("incorrect");
-
-        window.location.href = "gameover.html"; 
+        setTimeout(() => {
+            window.location.href = "gameover.html";
+        }, 100);
 
     }
 }
 
 function showScore() {
     resetState();
-    questionElement.innerHTML = Parabéns! Você acertou todas: ${score} de ${questions.length}!;
+    questionElement.innerHTML = `Parabéns! Você acertou todas: ${score} de ${questions.length}!`;
     nextBtn.innerHTML = "Jogar Novamente";
     nextBtn.style.display = "block";
 }
@@ -121,19 +122,19 @@ nextBtn.addEventListener("click", () => {
 startQuiz();
 
 Swal.fire({
-  title: "Are you sure?",
-  text: "You won't be able to revert this!",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Yes, delete it!"
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
 }).then((result) => {
-  if (result.isConfirmed) {
-    Swal.fire({
-      title: "Deleted!",
-      text: "Your file has been deleted.",
-      icon: "success"
-    });
-  }
+    if (result.isConfirmed) {
+        Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+        });
+    }
 });
