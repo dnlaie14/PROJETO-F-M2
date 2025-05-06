@@ -93,3 +93,47 @@ function selectaltern(e) {
 
     }
 }
+
+function showScore() {
+    resetState();
+    questionElement.innerHTML = Parabéns! Você acertou todas: ${score} de ${questions.length}!;
+    nextBtn.innerHTML = "Jogar Novamente";
+    nextBtn.style.display = "block";
+}
+
+function handleNextBtn() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
+    } else {
+        showScore();
+    }
+}
+
+nextBtn.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
+        handleNextBtn();
+    } else {
+        startQuiz();
+    }
+});
+
+startQuiz();
+
+Swal.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire({
+      title: "Deleted!",
+      text: "Your file has been deleted.",
+      icon: "success"
+    });
+  }
+});
