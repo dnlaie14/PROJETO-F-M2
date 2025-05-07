@@ -56,6 +56,7 @@ function resetState() {
         btnAlt.removeChild(btnAlt.firstChild);
     }
 }
+
 function showQuestion() {
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
@@ -120,4 +121,3 @@ nextBtn.addEventListener("click", () => {
 });
 
 startQuiz();
-
